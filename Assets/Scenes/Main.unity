@@ -448,7 +448,7 @@ MonoBehaviour:
   debugMode: 0
   requiredPrecision: 1.5
   showLifecycleEvents: 1
-  showAdvanedSettings: 0
+  showAdvanedSettings: 1
   restrictY: 0
   lastMeta: 
   lastPrecision: 0
