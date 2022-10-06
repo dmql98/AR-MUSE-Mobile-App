@@ -57,6 +57,7 @@ namespace QRFoundation
         Registered
     }
 
+
     public class QRCodeTracker : MonoBehaviour
     {
         public struct PoseResult
@@ -236,6 +237,8 @@ namespace QRFoundation
         private GameObject cameraGameObject;
         private Camera camCopy;
 
+        
+
         public void Start()
         {
             cam = GetComponent<Camera>();
@@ -247,6 +250,18 @@ namespace QRFoundation
             debugBubbles = new GameObject[maxDebugBubbles];
 
             PNP.debugMode = this.debugMode;
+
+            string filename = "test";
+
+            try
+            {
+                prefab = Resources.Load(filename) as GameObject;
+                Debug.Log("I tried");
+            }
+            catch
+            {
+                Debug.Log("Something wrong with loading new model");
+            }
         }
 
         public void Reset()
