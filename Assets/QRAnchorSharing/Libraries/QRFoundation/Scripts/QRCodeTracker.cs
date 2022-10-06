@@ -237,7 +237,9 @@ namespace QRFoundation
         private GameObject cameraGameObject;
         private Camera camCopy;
 
-        
+        private string filename = "test";
+
+
 
         public void Start()
         {
@@ -251,8 +253,16 @@ namespace QRFoundation
 
             PNP.debugMode = this.debugMode;
 
-            string filename = "test";
+            LoadModel(filename);
 
+            
+        }
+
+        /// <summary> QD
+        /// Load model by it's name from "Resources" folder
+        /// </summary>
+        private void LoadModel(string filename)
+        {
             try
             {
                 prefab = Resources.Load(filename) as GameObject;
@@ -263,6 +273,15 @@ namespace QRFoundation
                 Debug.Log("Something wrong with loading new model");
             }
         }
+
+        /// <summary> QD 
+        /// Get the name of the model. Waiting to add read from link =======================================================
+        /// </summary>
+        public string LoadFileName(string loadFilename)
+        {
+            return filename = loadFilename;
+        }
+
 
         public void Reset()
         {

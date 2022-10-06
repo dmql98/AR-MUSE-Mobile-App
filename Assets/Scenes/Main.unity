@@ -420,8 +420,24 @@ MonoBehaviour:
   sizeDetermination: 0
   codeWidth: 0.08
   codeWidths:
+  - contains: normal
+    width: 0.0515
+  - contains: mirrored
+    width: 0.051
+  - contains: highResolution
+    width: 0.0565
+  - contains: colors
+    width: 0.054
+  - contains: withLogo
+    width: 0.0458
+  - contains: fancy
+    width: 0.055
+  - contains: EE
+    width: 0.034
+  - contains: inverted
+    width: 0.052
   - contains: 
-    width: 0
+    width: 0.05
   prefab: {fileID: 8884776251331036478, guid: a8d51472454f941d7a14faafbdd1a318, type: 3}
   inversionAttempt: 0
   onCodeDetected:
@@ -442,8 +458,8 @@ MonoBehaviour:
   maxScanResolution: 250000
   searchScanInterval: 0.5
   stabilizeScanInterval: 0
-  refineScanInterval: 0.1
-  codeLossTimeout: 5
+  refineScanInterval: 0
+  codeLossTimeout: 3
   truncateTimeout: Infinity
   debugMode: 0
   requiredPrecision: 1.5
@@ -454,36 +470,6 @@ MonoBehaviour:
   lastPrecision: 0
   stabilizingTime: 0
   registeredGameObject: {fileID: 0}
---- !u!1 &1113771153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1113771154}
-  m_Layer: 0
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1113771154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113771153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284901938
 GameObject:
   m_ObjectHideFlags: 0
