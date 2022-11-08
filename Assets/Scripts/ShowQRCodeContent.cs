@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShowQRCodeContent : MonoBehaviour
 {
     public GameObject textPrefab;
+    public string link;
 
     public void OnCodeRegistered(string content, GameObject gameObject)
     {
@@ -26,6 +27,7 @@ public class ShowQRCodeContent : MonoBehaviour
 
         // Set the text to the content of the QR code
         text.transform.Find("Canvas").Find("Text").GetComponent<TMP_Text>().text = content;
+        this.link = content;
 
         // Rotate to show text at the ideal side (on the "bottom")
         // First, create a vector that points from the game object to the camera

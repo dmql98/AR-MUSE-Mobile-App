@@ -239,6 +239,9 @@ namespace QRFoundation
 
         private string filename = "test";
 
+        private ShowQRCodeContent showQRCodeContent;
+
+
 
 
         public void Start()
@@ -253,7 +256,6 @@ namespace QRFoundation
 
             PNP.debugMode = this.debugMode;
 
-            LoadModel(filename);
 
             
         }
@@ -277,10 +279,30 @@ namespace QRFoundation
         /// <summary> QD 
         /// Get the name of the model. Waiting to add read from link =======================================================
         /// </summary>
-        public string LoadFileName(string loadFilename)
+        public void LoadPrefabByLink()
         {
-            return filename = loadFilename;
+            if(lastContent == "Car")
+            {
+                LoadModel("Car");
+            }
+            else if(lastContent == "Coords")
+            {
+                LoadModel("Coords");
+            }
+            else if (lastContent == "FloatingGate")
+            {
+                LoadModel("FloatingGate");
+            }
+            else if (lastContent == "Hearts")
+            {
+                LoadModel("Heart");
+            }else if(lastContent == "StoneLion")
+            {
+                LoadModel("StoneLion");
+            }
         }
+
+ 
 
 
         public void Reset()
@@ -318,6 +340,8 @@ namespace QRFoundation
 
         public void Update()
         {
+            LoadPrefabByLink();
+
             // Execute the "scan complete callback" if set.
             // Unset afterwards.
             if (qrScanCallback != null)
