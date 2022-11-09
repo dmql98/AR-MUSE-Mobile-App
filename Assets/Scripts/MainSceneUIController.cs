@@ -19,6 +19,9 @@ public class MainSceneUIController : MonoBehaviour
 
     [Header("Menu")]
     [SerializeField]    private GameObject menu;
+    [SerializeField]    private Sprite spriteMenu;
+    [SerializeField]    private Sprite spriteClose;
+                        private Image btn_menu_image;
                         private GameObject menuText;
                         private Animator menuTextAnimator;
                         private bool isMenuTextVisible;
@@ -44,6 +47,7 @@ public class MainSceneUIController : MonoBehaviour
         hideUIObjects.Add(focusbar);
 
         isMenuTextVisible = false;
+        btn_menu_image = GameObject.Find("Btn_Menu").GetComponent<Image>();
         menuText = GameObject.Find("MenuText");
         menuTextAnimator = menuText.GetComponent<Animator>();
         menuText.SetActive(false);
@@ -72,11 +76,16 @@ public class MainSceneUIController : MonoBehaviour
         isMenuTextVisible = !isMenuTextVisible;
         menuText.SetActive(isMenuTextVisible);
         if (isMenuTextVisible)
+        {
             menuTextAnimator.SetBool("IsMenuTextVisible", true);
+            btn_menu_image.sprite = spriteClose;
+        }
         else
-            menuTextAnimator.SetBool("IsMenuTextVisible", false);   
+        {
+            menuTextAnimator.SetBool("IsMenuTextVisible", false);
+            btn_menu_image.sprite = spriteMenu;
+        }
     }
-
 
 
     public void LoadScene(string sceneName)

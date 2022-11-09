@@ -392,6 +392,8 @@ MonoBehaviour:
   spriteHide: {fileID: 21300000, guid: 85fb5028bb3c5ea45bdcc21f430d7864, type: 3}
   spriteShow: {fileID: 21300000, guid: 21401d5cf3ed51f46bf5ba621a4736e6, type: 3}
   menu: {fileID: 1075162841}
+  spriteMenu: {fileID: 21300000, guid: 963c54012f37ae74982f1a6efa9b3928, type: 3}
+  spriteClose: {fileID: 21300000, guid: bff6c9a80dd30a2419c294d11b659f65, type: 3}
   bottombar: {fileID: 2010215977}
   focusbar: {fileID: 1032172060}
 --- !u!1 &65240377
