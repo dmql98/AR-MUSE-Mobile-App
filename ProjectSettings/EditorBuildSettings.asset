@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/UI prototype/1/main.unity
+    path: Assets/Scenes/UI prototype/Opening.unity
     guid: 806fbb56dcd78544394680fb635bc179
   - enabled: 1
-    path: Assets/Scenes/UI prototype/1/1-1.unity
+    path: Assets/Scenes/UI prototype/MainScene.unity
     guid: f2e9c8b965d52914ea1b02c3a606db54
   - enabled: 1
-    path: Assets/Scenes/UI prototype/1/collectionList.unity
+    path: Assets/Scenes/UI prototype/CollectionList.unity
     guid: d08881c6357cfca44bae3a371640cfb8
+  - enabled: 1
+    path: Assets/Scenes/UI prototype/About.unity
+    guid: 389657717fe1dcc4db094a8b89dbda26
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: c313fcaaf80f58240ad720b08ec37549, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 26e2cfa69a8852842b73f02795ee3acb, type: 2}
