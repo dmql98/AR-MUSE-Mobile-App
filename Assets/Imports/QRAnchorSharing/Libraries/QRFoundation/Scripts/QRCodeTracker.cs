@@ -297,9 +297,17 @@ namespace QRFoundation
                 LoadModel("Coords");
             }
             */
+            else if (lastContent == "CarWT")
+            {
+                LoadModel("CarWT");
+            }
             else if (lastContent == "FloatingGate")
             {
                 LoadModel("FloatingGate");
+            }
+            else if (lastContent == "FloatingGateWT")
+            {
+                LoadModel("FloatingGateWT");
             }
             else if (lastContent == "Hearts")
             {
