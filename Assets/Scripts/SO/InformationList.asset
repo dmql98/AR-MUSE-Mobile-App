@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976a8de2cb47797429c095421e2cb452, type: 3}
+  m_Name: InformationList
+  m_EditorClassIdentifier: 
+  InformationList:
+  - title: IMGD 2023
+    subtitle: AR Exhibition
+    author: 
+    description: 'AR Exhibition Presented by: Qianlin Duanmu, Tian(Tony) Dai, Julian
+      Herman, and Yingcheng(Jerry) Cai Special thanks to Prof. Josh Rosenstock and
+      Prof. Charlie Roberts! And thank you for playing!'
+  - title: Car
+    subtitle: 
+    author: Julian Herman
+    description: 1
+  - title: FloatingGate
+    subtitle: 
+    author: Conrad Justin
+    description: 2
+  - title: Hearts
+    subtitle: 
+    author: Talaei
+    description: 3
+  - title: StoneLion
+    subtitle: 
+    author: Alexandre Tokovinine
+    description: 4

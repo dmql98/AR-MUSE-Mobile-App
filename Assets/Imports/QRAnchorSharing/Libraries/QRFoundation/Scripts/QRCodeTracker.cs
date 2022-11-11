@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using CSQR;
 using UnityEngine;
 using UnityEngine.Events;
@@ -45,6 +46,7 @@ namespace QRFoundation
 
     [Serializable]
     public class OnPoseRegisteredEvent : UnityEvent<string, Pose> { };
+
 
     public delegate float GetWidthDelegate(string codeContent);
     public delegate void GetWidthAndOffsetDelegate(string serialized, out Pose pose, out float width, out int anchorId, out string rest);
@@ -241,8 +243,11 @@ namespace QRFoundation
 
         private ShowQRCodeContent showQRCodeContent;
 
-
-
+        public static QRCodeTracker S;
+        private void Awake()
+        {
+            S = this;
+        }
 
         public void Start()
         {
@@ -281,14 +286,17 @@ namespace QRFoundation
         /// </summary>
         public void LoadPrefabByLink()
         {
-            if(lastContent == "Car")
+            MainSceneUIController.S.SetTitleAndDescriptionText(lastContent);
+            if (lastContent == "Car")
             {
                 LoadModel("Car");
             }
+            /*
             else if(lastContent == "Coords")
             {
                 LoadModel("Coords");
             }
+            */
             else if (lastContent == "FloatingGate")
             {
                 LoadModel("FloatingGate");
@@ -296,7 +304,8 @@ namespace QRFoundation
             else if (lastContent == "Hearts")
             {
                 LoadModel("Heart");
-            }else if(lastContent == "StoneLion")
+            }
+            else if(lastContent == "StoneLion")
             {
                 LoadModel("StoneLion");
             }
@@ -891,6 +900,13 @@ namespace QRFoundation
             // Restore previous culling mask
             cam.cullingMask = oldCullingMask;
             return screenShot;
+        }
+
+
+        public void DestroyActivedModel()
+        {
+            Destroy(registeredGameObject);
+            lastContent = null;
         }
     }
 }
