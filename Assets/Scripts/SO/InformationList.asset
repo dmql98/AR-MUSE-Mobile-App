@@ -22,16 +22,16 @@ MonoBehaviour:
   - title: Car
     subtitle: 
     author: Julian Herman
-    description: Our first test object.
+    description: 1
   - title: FloatingGate
     subtitle: 
     author: Conrad Justin
-    description: Our first vertical display test object.
+    description: 2
   - title: Hearts
     subtitle: 
     author: Talaei
-    description: Just a bunch of hearts
+    description: 3
   - title: StoneLion
     subtitle: 
     author: Alexandre Tokovinine
-    description: Just a stone lion
+    description: 4
