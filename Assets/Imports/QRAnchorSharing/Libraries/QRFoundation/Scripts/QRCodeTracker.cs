@@ -913,7 +913,7 @@ namespace QRFoundation
 
         public void DestroyActivedModel()
         {
-            Destroy(registeredGameObject);
+            Unregister();
             lastContent = null;
         }
     }

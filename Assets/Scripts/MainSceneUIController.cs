@@ -82,10 +82,12 @@ public class MainSceneUIController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        /*
         if (activeModelIndex == 0)
             btn_clear.SetActive(false);
         else
             btn_clear.SetActive(true);
+        */
     }
     #endregion
 
@@ -151,7 +153,7 @@ public class MainSceneUIController : MonoBehaviour
                 break;
             }
         }
-        title_text.text = informationListSO.InformationList[activeModelIndex].title;
+        title_text.text = informationListSO.InformationList[activeModelIndex].title.Contains("WT") ? informationListSO.InformationList[activeModelIndex].title.Substring(0, informationListSO.InformationList[activeModelIndex].title.Length - 2) : informationListSO.InformationList[activeModelIndex].title;
         description_text.text = informationListSO.InformationList[activeModelIndex].description;
         if (activeModelIndex == 0)
             subtitle_text.text = informationListSO.InformationList[activeModelIndex].subtitle;

@@ -11,10 +11,10 @@ public class InformationListSO : ScriptableObject
     [System.Serializable]
     public class Information
     {
-        public string title;
-        public string subtitle;
-        public string author;
-        public string description;
+                        public string title;
+                        public string subtitle;
+                        public string author;
+        [Multiline]     public string description;
     }
 
 
