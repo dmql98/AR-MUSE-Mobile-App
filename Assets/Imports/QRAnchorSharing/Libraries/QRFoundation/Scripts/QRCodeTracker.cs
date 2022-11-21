@@ -266,18 +266,17 @@ namespace QRFoundation
         }
 
         /// <summary> QD
-        /// Load model by it's name from "Resources" folder
+        /// Load model by it's id from "Resources" folder
         /// </summary>
-        private void LoadModel(string filename)
+        private void LoadModel(string id)
         {
             try
             {
-                prefab = Resources.Load(filename) as GameObject;
-                Debug.Log("I tried");
+                prefab = Resources.Load(id) as GameObject;
             }
             catch
             {
-                Debug.Log("Something wrong with loading new model");
+                Debug.LogError("Something wrong with loading new model");
             }
         }
 
@@ -287,16 +286,18 @@ namespace QRFoundation
         public void LoadPrefabByLink()
         {
             MainSceneUIController.S.SetTitleAndDescriptionText(lastContent);
+            LoadModel(lastContent);
+            /*
             if (lastContent == "Car")
             {
                 LoadModel("Car");
             }
-            /*
+            
             else if(lastContent == "Coords")
             {
                 LoadModel("Coords");
             }
-            */
+            
             else if (lastContent == "CarWT")
             {
                 LoadModel("CarWT");
@@ -317,6 +318,7 @@ namespace QRFoundation
             {
                 LoadModel("StoneLion");
             }
+            */
         }
 
  

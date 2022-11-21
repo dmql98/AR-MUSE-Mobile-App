@@ -38,7 +38,7 @@ public class CollectionListManager : MonoBehaviour
         {
             GameObject insObj = Instantiate(lineOfList, socket);
             insObj.transform.Find("Text_Description").GetComponent<TextMeshProUGUI>().text =
-                $"<b>{(informationListSO.InformationList[i].title.Contains("WT") ? informationListSO.InformationList[i].title.Substring(0, informationListSO.InformationList[i].title.Length - 2) : informationListSO.InformationList[i].title)}</b>\nby {informationListSO.InformationList[i].author}";
+                $"<b>{informationListSO.InformationList[i].title}</b>\nby {informationListSO.InformationList[i].author}";
             insObj.GetComponent<Button>().onClick.AddListener(() => OnClickLineOfCollectionList());
         }
     }
@@ -48,7 +48,7 @@ public class CollectionListManager : MonoBehaviour
         isHintbarFolded = false;
         GameObject clickedLine = EventSystem.current.currentSelectedGameObject;
         int indexInList = clickedLine.transform.GetSiblingIndex() + 1;
-        text_title.text = $"<b>{(informationListSO.InformationList[indexInList].title.Contains("WT") ? informationListSO.InformationList[indexInList].title.Substring(0, informationListSO.InformationList[indexInList].title.Length - 2) : informationListSO.InformationList[indexInList].title)}</b> by {informationListSO.InformationList[indexInList].author}";
+        text_title.text = $"<b>{informationListSO.InformationList[indexInList].title}</b> by {informationListSO.InformationList[indexInList].author}";
         text_hint.text = informationListSO.InformationList[indexInList].description;
     }
 

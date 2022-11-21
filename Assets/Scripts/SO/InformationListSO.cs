@@ -13,6 +13,7 @@ public class InformationListSO : ScriptableObject
     {
                         public string title;
                         public string subtitle;
+                        public string id;
                         public string author;
         [Multiline]     public string description;
     }

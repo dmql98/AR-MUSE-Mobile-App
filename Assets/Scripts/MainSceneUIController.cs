@@ -91,7 +91,6 @@ public class MainSceneUIController : MonoBehaviour
     }
     #endregion
 
-
     #region Tools
     public void OnClickButtonVisible()
     {
@@ -143,17 +142,18 @@ public class MainSceneUIController : MonoBehaviour
     }
 
 
-    public void SetTitleAndDescriptionText(string prefabName)
+    public void SetTitleAndDescriptionText(string id)
     {
         for (int i = 1; i < informationListSO.InformationList.Count; i++)
         {
-            if (informationListSO.InformationList[i].title == prefabName)
+            if (informationListSO.InformationList[i].id == id)
             {
                 activeModelIndex = i;
                 break;
             }
         }
-        title_text.text = informationListSO.InformationList[activeModelIndex].title.Contains("WT") ? informationListSO.InformationList[activeModelIndex].title.Substring(0, informationListSO.InformationList[activeModelIndex].title.Length - 2) : informationListSO.InformationList[activeModelIndex].title;
+
+        title_text.text = informationListSO.InformationList[activeModelIndex].title;
         description_text.text = informationListSO.InformationList[activeModelIndex].description;
         if (activeModelIndex == 0)
             subtitle_text.text = informationListSO.InformationList[activeModelIndex].subtitle;
