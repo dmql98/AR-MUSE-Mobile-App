@@ -15,23 +15,44 @@ MonoBehaviour:
   InformationList:
   - title: IMGD 2023
     subtitle: AR Exhibition
+    id: MUSE_0
     author: 
     description: 'AR Exhibition Presented by: Qianlin Duanmu, Tian(Tony) Dai, Julian
-      Herman, and Yingcheng(Jerry) Cai Special thanks to Prof. Josh Rosenstock and
-      Prof. Charlie Roberts! And thank you for playing!'
+      Herman, and Yingcheng(Jerry) Cai
+
+      Special thanks to Prof. Josh Rosenstock
+      and Prof. Charlie Roberts!
+
+      And thank you for playing!'
   - title: Car
     subtitle: 
+    id: MUSE_10000000
     author: Julian Herman
-    description: 1
+    description: Our first test object, Julian created this (maybe) based on his
+      own car.
   - title: FloatingGate
     subtitle: 
+    id: MUSE_10000001
     author: Conrad Justin
-    description: 2
+    description: "Our first vertical display test object. \nZen, Zen Zen!\nIs this
+      Zen enough?"
   - title: Hearts
     subtitle: 
+    id: MUSE_10000002
     author: Talaei
-    description: 3
+    description: A bunch of crystal hearts, represents, huh, red hearts.
   - title: StoneLion
     subtitle: 
+    id: MUSE_10000003
     author: Alexandre Tokovinine
-    description: 4
+    description: "This is a Chinese guardian lion. Typically made of stone, they
+      are also known as stone lions or shishi (sh\xEDsh\u012B). They are known in
+      colloquial English as lion dogs or foo dogs / fu dogs. The concept, which originated
+      and became popular in Chinese Buddhism, features a pair of highly stylized
+      lions\u2014often one male with a ball which represents the material elements
+      and one female with a cub\u2014which represents the element of spirit , were
+      thought to protect the building from harmful spiritual influences and harmful
+      people that might be a threat. Used in imperial Chinese palaces and tombs,
+      the lions subsequently spread to other parts of Asia including Japan (see komainu),
+      Korea, Philippines, Tibet, Thailand, Myanmar, Vietnam, Sri Lanka, Nepal, Cambodia,
+      Laos, and Malaysia."

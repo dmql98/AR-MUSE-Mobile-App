@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "How to contol:\n\nHold your phone and focus the QR Code, after stabilizing
+  m_text: "How to control:\n\nHold your phone and focus the QR Code, after stabilizing
     for a second, you will get a model presented in front of your eyes.\n<size=50>(For
     better performance, please be steady as possible as you can)</size>\n\n<sprite=0>
     to expand the panel and show the description! \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAR

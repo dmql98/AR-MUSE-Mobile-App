@@ -82,13 +82,14 @@ public class MainSceneUIController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        /*
         if (activeModelIndex == 0)
             btn_clear.SetActive(false);
         else
             btn_clear.SetActive(true);
+        */
     }
     #endregion
-
 
     #region Tools
     public void OnClickButtonVisible()
@@ -141,16 +142,17 @@ public class MainSceneUIController : MonoBehaviour
     }
 
 
-    public void SetTitleAndDescriptionText(string prefabName)
+    public void SetTitleAndDescriptionText(string id)
     {
         for (int i = 1; i < informationListSO.InformationList.Count; i++)
         {
-            if (informationListSO.InformationList[i].title == prefabName)
+            if (informationListSO.InformationList[i].id == id)
             {
                 activeModelIndex = i;
                 break;
             }
         }
+
         title_text.text = informationListSO.InformationList[activeModelIndex].title;
         description_text.text = informationListSO.InformationList[activeModelIndex].description;
         if (activeModelIndex == 0)

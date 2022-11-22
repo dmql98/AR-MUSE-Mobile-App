@@ -280,7 +280,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 115584708}
   m_HandleRect: {fileID: 115584707}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2314,6 +2314,7 @@ MonoBehaviour:
   lastPrecision: 0
   stabilizingTime: 0
   registeredGameObject: {fileID: 0}
+  informationListSO: {fileID: 0}
 --- !u!114 &1019669748
 MonoBehaviour:
   m_ObjectHideFlags: 0
