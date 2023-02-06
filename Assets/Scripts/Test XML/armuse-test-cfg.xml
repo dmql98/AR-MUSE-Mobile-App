@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<museum>
+    <museum>
+        <title>MUSE TEST MUSEUM</title>
+        <subtitle>AR Exhibition</subtitle>
+        <author>Team MUSE</author>
+        <version>1.0.0</version>
+        <description>This is a test muesum presented by the developer of MUSE.</description>
+        <link>https://armuse.oss-us-west-1.aliyuncs.com/</link>
+    </museum>
+
+    <exhibit>
+        <exhibit>
+            <id>1</id>
+            <status>off</status>
+            <title>Null Obj</title>
+            <subtitle></subtitle>
+            <author></author>
+            <description></description>
+            <fileName></fileName>
+        </exhibit>
+
+        <exhibit>
+            <id>2</id>
+            <status>on</status>
+            <title>Car</title>
+            <subtitle></subtitle>
+            <author>Julian Herman</author>
+            <description>Our first test object, Julian created this (maybe) based on his own car.</description>
+            <fileName>2-car.ab</fileName>
+        </exhibit>
+
+        <exhibit>
+            <id>3</id>
+            <status>on</status>
+            <title>FloatingGate</title>
+            <subtitle></subtitle>
+            <author>Conrad Justin</author>
+            <description>Our first vertical displayed test object. 
+            Zen, Zen? Zen!
+            Is this Zen enough?</description>
+            <fileName>3-floatinggate.ab</fileName>
+        </exhibit>
+
+        <exhibit>
+            <id>4</id>
+            <status>on</status>
+            <title>Hearts</title>
+            <subtitle></subtitle>
+            <author>Talaei</author>
+            <description>A bunch of crystal hearts, represents, huh, red hearts.</description>
+            <fileName>4-hearts.ab</fileName>
+        </exhibit>
+
+        <exhibit>
+            <id>5</id>
+            <status>on</status>
+            <title>StoneLion</title>
+            <subtitle></subtitle>
+            <author>Alexandre Tokovinine</author>
+            <description>This is a Chinese guardian lion. Typically made of stone, they are also known as stone lions or shishi (shíshī). They are known in colloquial English as lion dogs or foo dogs / fu dogs. The concept, which originated and became popular in Chinese Buddhism, features a pair of highly stylized lions—often one male with a ball which represents the material elements and one female with a cub—which represents the element of spirit , were thought to protect the building from harmful spiritual influences and harmful people that might be a threat. Used in imperial Chinese palaces and tombs, the lions subsequently spread to other parts of Asia including Japan (see komainu), Korea, Philippines, Tibet, Thailand, Myanmar, Vietnam, Sri Lanka, Nepal, Cambodia, Laos, and Malaysia.</description>
+            <fileName>5-stonelion.ab</fileName>
+        </exhibit>
+    </exhibit>
+</museum>
+
+
+<!-- The Default format of exhibit:
+    <exhibit>
+        <exhibit>
+        <id></id>
+        <status></status>
+        <title></title>
+        <subtitle></subtitle>
+        <author></author>
+        <description></description>
+        <fileName></fileName>
+    </exhibit>
+-->

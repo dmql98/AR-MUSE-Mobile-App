@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 614872953
+CRC: 344449399
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ed6e5bb413bfba0260b8cc51cca0637b
+    Hash: dd82c71bca9a5624cc207d2064c0f39d
   TypeTreeHash:
     serializedVersion: 2
     Hash: b1c185c72cdafab906a20d7064a9cd59
@@ -27,5 +27,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Prefabs/Models/Sphere.prefab
+- Assets/Prefabs/Archive/Sphere.prefab
 Dependencies: []

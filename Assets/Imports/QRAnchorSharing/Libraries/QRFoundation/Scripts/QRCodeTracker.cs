@@ -239,9 +239,7 @@ namespace QRFoundation
         private GameObject cameraGameObject;
         private Camera camCopy;
 
-        private string filename = "test";
-
-        private ShowQRCodeContent showQRCodeContent;
+        public string downloadingRegisteredString = "";
 
         public static QRCodeTracker S;
         private void Awake()
@@ -259,69 +257,8 @@ namespace QRFoundation
 
             debugBubbles = new GameObject[maxDebugBubbles];
 
-            PNP.debugMode = this.debugMode;
-
-
-            
+            PNP.debugMode = this.debugMode;  
         }
-
-        /// <summary> QD
-        /// Load model by it's id from "Resources" folder
-        /// </summary>
-        private void LoadModel(string id)
-        {
-            try
-            {
-                prefab = Resources.Load(id) as GameObject;
-            }
-            catch
-            {
-                Debug.LogError("Something wrong with loading new model");
-            }
-        }
-
-        /// <summary> QD 
-        /// Get the name of the model. Waiting to add read from link =======================================================
-        /// </summary>
-        public void LoadPrefabByLink()
-        {
-            MainSceneUIController.S.SetTitleAndDescriptionText(lastContent);
-            LoadModel(lastContent);
-            /*
-            if (lastContent == "Car")
-            {
-                LoadModel("Car");
-            }
-            
-            else if(lastContent == "Coords")
-            {
-                LoadModel("Coords");
-            }
-            
-            else if (lastContent == "CarWT")
-            {
-                LoadModel("CarWT");
-            }
-            else if (lastContent == "FloatingGate")
-            {
-                LoadModel("FloatingGate");
-            }
-            else if (lastContent == "FloatingGateWT")
-            {
-                LoadModel("FloatingGateWT");
-            }
-            else if (lastContent == "Hearts")
-            {
-                LoadModel("Heart");
-            }
-            else if(lastContent == "StoneLion")
-            {
-                LoadModel("StoneLion");
-            }
-            */
-        }
-
- 
 
 
         public void Reset()
@@ -331,6 +268,7 @@ namespace QRFoundation
             ResetSamples();
             trackingState = TrackingState.Searching;
             lastContent = null;
+            Unregister();   // From Jerry
         }
 
         /// <summary>
@@ -359,7 +297,8 @@ namespace QRFoundation
 
         public void Update()
         {
-            LoadPrefabByLink();
+            /// From Jerry
+            LoadPrefabByRegisteredString();
 
             // Execute the "scan complete callback" if set.
             // Unset afterwards.
@@ -408,6 +347,25 @@ namespace QRFoundation
                 registeredGameObject.transform.rotation = Quaternion.Slerp(registeredGameObject.transform.rotation, registeredPose.rotation, 0.2f);
             }
         }
+
+        private void LoadPrefabByRegisteredString()
+        {
+            if (registeredString != null)
+            {
+                string s = registeredString.Trim();
+                if (s.EndsWith(".ab"))
+                {
+                    if (s != downloadingRegisteredString)
+                    {
+                        // Found assetbundle link
+                        downloadingRegisteredString = s;
+                        ContentController cc = GameObject.Find("Content").GetComponent<ContentController>();
+                        cc.LoadContent(downloadingRegisteredString);
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Perform a step in "Searching" state.
@@ -866,6 +824,7 @@ namespace QRFoundation
                 registeredGameObject = new GameObject();
             }
 
+
             registeredGameObject.transform.parent = transform.parent;
             registeredGameObject.transform.position = pose.position;
             registeredGameObject.transform.rotation = pose.rotation;
@@ -876,6 +835,7 @@ namespace QRFoundation
             onCodeRegistered.Invoke(content, registeredGameObject);
             onPoseRegistered.Invoke(content, pose);
         }
+
 
         /// <summary>
         /// Takes a "screenshot" of the camera's background render texture.
@@ -912,11 +872,5 @@ namespace QRFoundation
             return screenShot;
         }
 
-
-        public void DestroyActivedModel()
-        {
-            Unregister();
-            lastContent = null;
-        }
     }
 }

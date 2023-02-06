@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 825332112
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cd1109500ae02fd3feb20788bd5b2349
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: deb54e2b64790d41523e3d9dd9684ce4
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/MUSE_10000003.prefab
+Dependencies: []
