@@ -23,12 +23,11 @@ public class API : MonoBehaviour
         bundleURL += "ios/";
 #endif
         bundleURL += assetFileName;
-        MainSceneUIController.S.SetDialogText($"Requesting bundle at {bundleURL}");
+        MainSceneUIController.S.SetDialogText($"Requesting bundle...");
 
         // Request asset bundle
         UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
         yield return www.SendWebRequest();
-
         if (www.result == UnityWebRequest.Result.ConnectionError)
         {
             QRCodeTracker.S.downloadingRegisteredString = "";
