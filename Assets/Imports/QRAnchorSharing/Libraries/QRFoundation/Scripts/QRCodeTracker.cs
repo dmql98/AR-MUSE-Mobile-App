@@ -6,6 +6,7 @@ using CSQR;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.Networking;
 
 namespace QRFoundation
 {
@@ -241,12 +242,6 @@ namespace QRFoundation
 
         public string downloadingRegisteredString = "";
 
-        public static QRCodeTracker S;
-        private void Awake()
-        {
-            S = this;
-        }
-
         public void Start()
         {
             cam = GetComponent<Camera>();
@@ -257,7 +252,7 @@ namespace QRFoundation
 
             debugBubbles = new GameObject[maxDebugBubbles];
 
-            PNP.debugMode = this.debugMode;  
+            PNP.debugMode = this.debugMode;
         }
 
 
@@ -348,24 +343,69 @@ namespace QRFoundation
             }
         }
 
+        /// <summary>
+        /// Once get a registered qr code, download the game object
+        /// </summary>
         private void LoadPrefabByRegisteredString()
         {
             if (registeredString != null)
             {
+                // Get current string (trimed)
                 string s = registeredString.Trim();
                 if (s.EndsWith(".ab"))
                 {
+                    // make sure current string is different from last time, avoid repeat downloading
                     if (s != downloadingRegisteredString)
                     {
                         // Found assetbundle link
                         downloadingRegisteredString = s;
-                        ContentController cc = GameObject.Find("Content").GetComponent<ContentController>();
-                        cc.LoadContent(downloadingRegisteredString);
+                        StartCoroutine(GetDisplayBundleRoutine(downloadingRegisteredString, PlayerPrefs.GetString("rootUrl")));
                     }
                 }
             }
         }
 
+        IEnumerator GetDisplayBundleRoutine(string assetFileName, string url)
+        {
+            string bundleURL = $"{url}/asset-bundle/";
+
+            // Append platform to asset bundle name
+#if UNITY_ANDROID
+            bundleURL += "android/";
+#else
+            bundleURL += "ios/";
+#endif
+            bundleURL += assetFileName;
+
+            // Request asset bundle
+            UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
+            MainSceneUIController.S.SetDialogText($"Requesting bundle...");
+            // Send the request and then wait until it returns
+            yield return uwr.SendWebRequest();
+            if (uwr.result == UnityWebRequest.Result.ConnectionError)
+            {
+                MainSceneUIController.S.SetDialogText("Download model failed:\n<b>Network error!</b>");
+            }
+            else
+            {
+                AssetBundle ab = DownloadHandlerAssetBundle.GetContent(uwr);
+                if (ab != null)
+                {
+                    string rootAssetPath = ab.GetAllAssetNames()[0];
+                    GameObject bundleObj = ab.LoadAsset(rootAssetPath) as GameObject;
+                    prefab = bundleObj;
+                    Register(intermediateSmoothed, lastContent);
+                    registeredGameObject.transform.localScale = Vector3.one * lastWidth;
+                    trackingState = TrackingState.Registered;
+                    MainSceneUIController.S.OnClickButtonOk();
+                    ab.Unload(false);
+                }
+                else
+                {
+                    MainSceneUIController.S.SetDialogText("Invalid asset, please try again later.");
+                }
+            }
+        }
 
         /// <summary>
         /// Perform a step in "Searching" state.
@@ -817,6 +857,7 @@ namespace QRFoundation
         {
             if (prefab != null)
             {
+                Destroy(registeredGameObject);
                 registeredGameObject = Instantiate(prefab);
             }
             else

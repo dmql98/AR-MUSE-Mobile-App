@@ -18,10 +18,12 @@ public class EntrySceneUIManager : MonoBehaviour
     public GameObject popup;
     public TMP_Text popupText;
     public GameObject btn_enter;
-
+    private QRCodeTracker qct;
     // Start is called before the first frame update
     void Start()
     {
+        qct = GameObject.Find("AR Camera").GetComponent<QRCodeTracker>();
+
         btn_enter.SetActive(false);
         popup.SetActive(false);
     }
@@ -51,7 +53,7 @@ public class EntrySceneUIManager : MonoBehaviour
         StopAllCoroutines();
         xmlManager.xlp.Status = XMLManager.xmlStatus.scanning;
         xmlManager.scannedLink = null;
-        QRCodeTracker.S.Reset();
+        qct.Reset();
     }
 
 

@@ -13,7 +13,6 @@ public class MainSceneUIController : MonoBehaviour
 {
     #region References
     public static MainSceneUIController S;
-    private int activeModelIndex = 0;
 
     [Header("Button Visible")]
     [SerializeField]    private Image btn_visible_image;
@@ -57,9 +56,10 @@ public class MainSceneUIController : MonoBehaviour
 
 
     [Header("Classes")]
+                        private QRCodeTracker qct;
                         private List<Exhibit.exhibit> exhibitList;
                         private museum thisMuseum;
-
+                        
     [Header("Debug")]
     [SerializeField]    private TMP_Text debug_text;
     public class museum
@@ -118,6 +118,7 @@ public class MainSceneUIController : MonoBehaviour
 
         dialog.SetActive(false);
 
+        qct = GameObject.Find("AR Camera").GetComponent<QRCodeTracker>();
         exhibitList = new List<Exhibit.exhibit>();
 
         InitializeXML();
@@ -129,10 +130,10 @@ public class MainSceneUIController : MonoBehaviour
     private void Update()
     {
         //SetDebugText("//Debug RS: " + QRCodeTracker.S.registeredString);
-        if (QRCodeTracker.S.registeredString != null && QRCodeTracker.S.registeredString.Trim().EndsWith(".ab"))
+        if (qct.registeredString != null && qct.registeredString.Trim().EndsWith(".ab"))
         {
             // Found assetbundle link
-            SetTitleAndDescriptionText(QRCodeTracker.S.registeredString.Trim());
+            SetTitleAndDescriptionText(qct.registeredString.Trim());
         }
         else
         {
@@ -273,7 +274,7 @@ public class MainSceneUIController : MonoBehaviour
 
     public void OnClickButtonClear()
     {
-        QRCodeTracker.S.Reset();
+        qct.Reset();
     }
 
 

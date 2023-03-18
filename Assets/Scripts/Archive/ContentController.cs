@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using QRFoundation;
 public class ContentController : MonoBehaviour
 {
     public API api;
@@ -9,13 +9,7 @@ public class ContentController : MonoBehaviour
     public void LoadContent(string fileName)
     {
         //DestroyAllChildrenObject();
-        api.GetBundleObject(fileName, PlayerPrefs.GetString("rootUrl"), OnContentLoaded, transform);
-    }
-
-    private void OnContentLoaded(GameObject content)
-    {
-        // TO-DO: when object is loaded
-        Debug.Log($"Loaded {content.name}");
+        api.GetBundleObject(fileName, PlayerPrefs.GetString("rootUrl"));
     }
 
 

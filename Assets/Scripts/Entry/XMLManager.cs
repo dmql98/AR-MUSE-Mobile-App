@@ -13,6 +13,7 @@ public class XMLManager : MonoBehaviour
     #region References
     public string scannedLink;
     private string fileName;
+    private QRCodeTracker qct;
 
     public class XMLLoadProgress
     {
@@ -41,6 +42,7 @@ public class XMLManager : MonoBehaviour
     #region Unity lifetime activities
     private void Start()
     {
+        qct = GameObject.Find("AR Camera").GetComponent<QRCodeTracker>();
         // test
         //StartCoroutine(DownLoadXMLFile("https://armuse.oss-us-west-1.aliyuncs.com/cfg/armuse-test-cfg.xml"));
         PlayerPrefs.DeleteAll();
@@ -51,7 +53,7 @@ public class XMLManager : MonoBehaviour
     {
         if (xlp.status == xmlStatus.scanning)
         {
-            scannedLink = QRCodeTracker.S.registeredString;
+            scannedLink = qct.registeredString;
             if (scannedLink != null && scannedLink.EndsWith("xml"))
             {
                 fileName = scannedLink.Substring(scannedLink.LastIndexOf('/'), scannedLink.Length - scannedLink.LastIndexOf('/') - 1);

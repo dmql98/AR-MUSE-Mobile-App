@@ -7,12 +7,17 @@ using QRFoundation;
 
 public class API : MonoBehaviour
 {
-    public void GetBundleObject(string assetFileName, string rootUrl, UnityAction<GameObject> callback, Transform bundleParent)
+    private QRCodeTracker qrt;
+    private void Start()
     {
-        StartCoroutine(GetDisplayBundleRoutine(assetFileName, rootUrl, callback, bundleParent));
+        qrt = GameObject.Find("AR Camera").GetComponent<QRCodeTracker>();
+        //StartCoroutine(GetDisplayBundleRoutine("2-car.ab", "https://armuse.oss-us-west-1.aliyuncs.com/"));
     }
 
-    IEnumerator GetDisplayBundleRoutine(string assetFileName, string url, UnityAction<GameObject> callback, Transform bundleParent)
+
+    public void GetBundleObject(string assetFileName, string rootUrl) => StartCoroutine(GetDisplayBundleRoutine(assetFileName, rootUrl));
+
+    IEnumerator GetDisplayBundleRoutine(string assetFileName, string url)
     {
         string bundleURL = $"{url}/asset-bundle/";
 
@@ -23,32 +28,33 @@ public class API : MonoBehaviour
         bundleURL += "ios/";
 #endif
         bundleURL += assetFileName;
-        MainSceneUIController.S.SetDialogText($"Requesting bundle...");
 
         // Request asset bundle
-        UnityWebRequest www = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
-        yield return www.SendWebRequest();
-        if (www.result == UnityWebRequest.Result.ConnectionError)
+        UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(bundleURL);
+        MainSceneUIController.S.SetDialogText($"Requesting bundle...");
+        // Send the request and then wait until it returns
+        yield return uwr.SendWebRequest();
+        if (uwr.result == UnityWebRequest.Result.ConnectionError)
         {
-            QRCodeTracker.S.downloadingRegisteredString = "";
-            MainSceneUIController.S.SetDialogText("Download model failed:\nNetwork error");
+            MainSceneUIController.S.SetDialogText("Download model failed:\n<b>Network error!</b>");
         }
         else
         {
-            MainSceneUIController.S.OnClickButtonOk();
-            AssetBundle ab = DownloadHandlerAssetBundle.GetContent(www);
+            AssetBundle ab = DownloadHandlerAssetBundle.GetContent(uwr);
             if (ab != null)
             {
                 string rootAssetPath = ab.GetAllAssetNames()[0];
                 GameObject bundleObj = ab.LoadAsset(rootAssetPath) as GameObject;
-                QRCodeTracker.S.prefab = bundleObj;
                 ab.Unload(false);
-                callback(bundleObj);
+                qrt.prefab = bundleObj;
+                MainSceneUIController.S.OnClickButtonOk();
             }
             else
             {
-                MainSceneUIController.S.SetDialogText("Invalid asset, please try again later");
+                MainSceneUIController.S.SetDialogText("Invalid asset, please try again later.");
             }
         }
     }
 }
+
+
