@@ -181,6 +181,7 @@ namespace QRFoundation
                         "Turn debug outputs on or off."),
                     module.debugMode
                 );
+                module.debugMode = false;
 
                 GUILayout.Space(10);
             }
