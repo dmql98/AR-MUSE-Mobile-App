@@ -242,7 +242,6 @@ MonoBehaviour:
   socket: {fileID: 1412002905}
   text_title: {fileID: 795813514}
   text_hint: {fileID: 216283550}
-  informationListSO: {fileID: 11400000, guid: 1797a7a646a88884aa07feb9c2cd0616, type: 2}
   hintbarAnimator: {fileID: 814851844}
 --- !u!1 &216283548
 GameObject:
@@ -304,8 +303,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Description
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
-  m_sharedMaterial: {fileID: 4742621240315100681, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
+  m_sharedMaterial: {fileID: -8289478722041785815, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -339,7 +338,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -450,10 +449,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collection List
+  m_text: COLLECTION
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
-  m_sharedMaterial: {fileID: 4742621240315100681, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
+  m_sharedMaterial: {fileID: -8289478722041785815, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -487,7 +486,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -876,8 +875,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <b>Model</b> by someone
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
-  m_sharedMaterial: {fileID: 4742621240315100681, guid: 841d34bbdd9dbfe46894259676dca883, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
+  m_sharedMaterial: {fileID: -8289478722041785815, guid: ac3b4a99429ae814aaaa329b6cc3d44f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -911,7 +910,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
